@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  spring-boot-docker-mongodb:
+    image: mongo:latest
+    container_name: "spring-boot-docker-mongodb"
+    ports:
+        - 27017:27017
+  springboot-mongodb:
+    image: spring-boot-docker-mongodb:1.0
+    container_name: springboot-mongodb
+    ports:
+        - 8080:8080
+    links:
+        - "spring-boot-docker-mongodb"
